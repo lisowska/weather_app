@@ -38,13 +38,14 @@ app.get('/', function(req, res){
 
 
 app.post('/',urlencodedParser,(req, res, next) => {
-    let city = req.city;
-    //const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=london&units=imperial&appid=66104564a7ae6603e21aad3ae0d8a065`;
+    let city = req.body.city;
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+    //const url = `http://api.openweathermap.org/data/2.5/weather?q=london&units=imperial&appid=66104564a7ae6603e21aad3ae0d8a065`;
    
     axios.post(url)
         .then((response) => {
-            let weather = JSON.parse(response)
+            console.log(response.data)
+            let weather = response.data
         res.render('axios', {weather: weather})
         })
         .catch((err) => {

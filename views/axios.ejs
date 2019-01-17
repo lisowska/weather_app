@@ -12,8 +12,8 @@
             <form acton="/" method="POST">
                 <input name="city" type="text" placeholder="Enter a City" required>
                 <input type="submit" value="Get Weather">
-                <p>W <%= weather.city %></p>
-                <p>tempetera wynosi <%= weather.main %></p>
+                <p>W <%= weather.name %></p>
+                <p>tempetera wynosi <%= weather.main.temp %></p>
             </form>
         </div>
     </body>
