@@ -27,7 +27,7 @@ app.post('/api', function(req, res) {
 
     request(url, function(err, response, body){
         if(err){
-            res.render('index', {weather: null, error: 'Error, please try again'});
+            res.render('index', {weather: null, error: 'Try again'});
         } else {
             let weather = JSON.parse(body)
         //res.render('index',{weather: weather})
