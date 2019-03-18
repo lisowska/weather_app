@@ -20,19 +20,19 @@ app.listen(port)
 
 
 app.get('/', function(req, res){
-    res.render('index');
+    res.render('axios');
 });
 
 
 
-app.post('/',urlencodedParser,(req, res, next) => {
+app.post('/api',urlencodedParser,(req, res, next) => {
     let city = req.body.city;
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
    
     axios.post(url)
         .then((response) => {
-            //console.log(response.data)
-            let weather = response.data
+            console.log(response.data)
+            let weather = response.data;
         res.render('axios', {weather: weather})
         })
         .catch((err) => {
